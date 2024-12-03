@@ -37,17 +37,9 @@ Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for
 Superfast is proudly supported by our sponsors. A big thanks to:
 
 
-[![Zulip](assets/zulip.png)](https://zulip.com) &nbsp; &nbsp; [![Fibery](assets/fibery.png)](https://fibery.io)
 
 
-
-
-[<img src="assets/zulip.png" width="100" height="100" alt="Zulip">](https://zulip.com) &nbsp; &nbsp; [<img src="assets/fibery.png" width="100" height="100" alt="Fibery">](https://fibery.io)
-
-
-
-
-[<img src="assets/zulip.png" width="180" height="100" alt="Zulip">](https://zulip.com) &nbsp; &nbsp; [<img src="assets/fibery.png" width="180" height="100" alt="Fibery">](https://fibery.io)
+[<img src="assets/zulip.png" width="180" height="95" alt="Zulip">](https://zulip.com) &nbsp; &nbsp; &nbsp; [<img src="assets/fibery.png" width="180" height="95" alt="Fibery">](https://fibery.io)
 
 
 
