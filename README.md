@@ -56,9 +56,6 @@ Superfast is released under the **[MIT License](LICENSE)**.
 
 
 
-## License
-
-Superfast is released under the **[MIT License](LICENSE)**.
 
 ---
 
