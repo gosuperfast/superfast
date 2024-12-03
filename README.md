@@ -12,19 +12,22 @@
 </p>
 
 ---
+&nbsp; 
 
 Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for simplicity, scalability, and performance. Built on Rails, Turbo, and Strada, it empowers content creators with modern tools while maintaining minimal JavaScript dependencies.
 
+&nbsp; 
 ---
 
 ## Quick Links
+&nbsp; 
 
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [License](LICENSE)
 - [Security Policy](SECURITY.md)
 
 ## Getting Started
-
+&nbsp; 
 ### Installation
 
 1. **Clone the Repository**:
@@ -35,7 +38,8 @@ Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for
 ## Sponsors
 
 Superfast is proudly supported by our sponsors. A big thanks to:
-
+&nbsp; 
+&nbsp; 
 
 
 
