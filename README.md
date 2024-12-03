@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://superfast.sh" target="_blank">
-    <img src="https://superfast.png" alt="Superfast" width="200px">
+    <img src="assets/superfast.png" alt="Superfast" width="200px">
   </a>
 </p>
 
