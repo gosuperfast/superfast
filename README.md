@@ -27,11 +27,6 @@ Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for
 
 ## Getting Started
 &nbsp; 
-### Installation
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/gosuperfast/superfast.git
 
 
 ## Sponsors
