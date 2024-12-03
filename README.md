@@ -11,13 +11,12 @@
     <a href="https://github.com/gosuperfast">Organization</a>
 </p>
 
----
+
 &nbsp; 
 
 Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for simplicity, scalability, and performance. Built on Rails, Turbo, and Strada, it empowers content creators with modern tools while maintaining minimal JavaScript dependencies.
 
 &nbsp; 
----
 
 ## Quick Links
 &nbsp; 
@@ -61,7 +60,7 @@ Superfast is released under the **[MIT License](LICENSE)**.
 
 
 
----
+
 
 
 ### 🚀 Beta Launching Soon!
