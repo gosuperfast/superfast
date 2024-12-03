@@ -37,7 +37,7 @@ Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for
 Superfast is proudly supported by our sponsors. A big thanks to:
 
 
-[![Zulip](zulip.png)](https://zulip.com) &nbsp; &nbsp; [![Fibery](fibery.png)](https://fibery.io)
+[![Zulip](assets/zulip.png)](https://zulip.com) &nbsp; &nbsp; [![Fibery](assets/fibery.png)](https://fibery.io)
 
 
 
