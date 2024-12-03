@@ -36,12 +36,9 @@ Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for
 
 Superfast is proudly supported by our sponsors. A big thanks to:
 
-<div style="display: flex; gap: 20px; align-items: center;">
-  <img src="assets/zulip.png" alt="Zulip" width="100px">
-  <img src="assets/fibery.png" alt="Fibery" width="100px">
-</div>
 
-[Zulip](https://zulip.com/) • [Fibery](https://fibery.io/)
+[![Zulip](zulip.png)](https://zulip.com) &nbsp; &nbsp; [![Fibery](fibery.png)](https://fibery.io)
+
 
 
 
