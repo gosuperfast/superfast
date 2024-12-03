@@ -1,4 +1,3 @@
-# Superfast CMS
 
 <p align="center">
   <a href="https://superfast.sh" target="_blank">
