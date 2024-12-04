@@ -37,7 +37,7 @@ Superfast is proudly supported by our sponsors. A big thanks to:
 
 
 
-[<img src="assets/zulip.png" width="185" height="70" alt="Zulip">](https://zulip.com) &nbsp; &nbsp; &nbsp; [<img src="assets/fibery.png" width="185" height="70" alt="Fibery">](https://fibery.io)
+[<img src="assets/zulip.png" width="185" height="45" alt="Zulip">](https://zulip.com) &nbsp; &nbsp; &nbsp; [<img src="assets/fibery.png" width="185" height="45" alt="Fibery">](https://fibery.io)
 
 
 
