@@ -63,7 +63,7 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
-        cp test/dummy/config/database.yml.ci test/dummy/config/database.yml
+        cp config/database.yml.ci config/database.yml
         bin/rails db:setup
 
     - name: Compile assets
