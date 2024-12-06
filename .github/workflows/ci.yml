@@ -16,7 +16,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: '3.3.6'  # Specify the Ruby version directly
 
       - name: Verify Ruby setup
         run: |
@@ -40,7 +40,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: '3.3.6'  # Specify the Ruby version directly
 
       - name: Verify Ruby setup
         run: |
@@ -63,7 +63,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: '3.3.6'  # Specify the Ruby version directly
 
       - name: Verify Ruby setup
         run: |
@@ -106,7 +106,7 @@ jobs:
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: '3.3.6'  # Specify the Ruby version directly
 
       - name: Verify Ruby setup
         run: |
