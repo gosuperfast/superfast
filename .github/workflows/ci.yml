@@ -23,6 +23,7 @@ jobs:
         run: |
           ruby -v
           which ruby
+          echo $PATH
 
       - name: Set execute permissions
         run: chmod +x bin/brakeman
@@ -47,6 +48,7 @@ jobs:
         run: |
           ruby -v
           which ruby
+          echo $PATH
 
       - name: Set execute permissions
         run: chmod +x bin/importmap
@@ -70,6 +72,7 @@ jobs:
         run: |
           ruby -v
           which ruby
+          echo $PATH
 
       - name: Set execute permissions
         run: chmod +x bin/rubocop
@@ -113,6 +116,7 @@ jobs:
         run: |
           ruby -v
           which ruby
+          echo $PATH
 
       - name: Set execute permissions
         run: chmod +x bin/rails
