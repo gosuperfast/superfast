@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version: ['3.2']
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install libvips
+      run: sudo apt-get install -y libvips
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby-version }}
+        bundler-cache: true
+
+    - name: Verify Ruby setup
+      run: |
+        ruby -v
+        which ruby
+        echo $PATH
+
+    - name: Set execute permissions
+      run: |
+        chmod +x bin/brakeman
+        chmod +x bin/importmap
+        chmod +x bin/rubocop
+        chmod +x bin/rails
+
+    - name: Setup Code Climate test-reporter
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+
+    - name: Create DB
+      env:
+        RAILS_ENV: test
+      run: |
+        cp test/dummy/config/database.yml.ci test/dummy/config/database.yml
+        bin/rails db:setup
+
+    - name: Compile assets
+      env:
+        RAILS_ENV: test
+      run: bin/rails app:assets:precompile
+
+    - name: Run tests
+      run: bin/rails test test/*
+
+    - name: Publish Code Coverage
+      env:
+        GIT_BRANCH: ${GITHUB_REF/refs/heads/}
+      run: ./cc-test-reporter after-build -r ${{ secrets.CodeClimate }}
+      if: github.ref == 'refs/heads/main'
