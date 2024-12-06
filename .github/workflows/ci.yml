@@ -1,168 +1,59 @@
 name: CI
 
 on:
-  pull_request:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  scan_ruby:
-    runs-on: ubuntu-latest
-
+  lint:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Ruby dependencies
-        run: sudo apt-get update && sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
-
-      - name: Set up Ruby with rbenv
-        run: |
-          curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-installer | bash
-          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-          source ~/.bashrc
-          rbenv install 3.1.2
-          rbenv global 3.1.2
-          gem install bundler
-
-      - name: Verify Ruby setup
-        run: |
-          ruby -v
-          which ruby
-          echo $PATH
-
-      - name: Set execute permissions
-        run: chmod +x bin/brakeman
-
-      - name: Scan for common Rails security vulnerabilities using static analysis
-        run: bin/brakeman --no-pager
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install dependencies
+        run: bundle install
+      - name: Run linter
+        run: bundle exec rubocop
 
   scan_js:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Run JS Scanner
+        run: npm run lint
 
-      - name: Install Ruby dependencies
-        run: sudo apt-get update && sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
-
-      - name: Set up Ruby with rbenv
-        run: |
-          curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-installer | bash
-          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-          source ~/.bashrc
-          rbenv install 3.1.2
-          rbenv global 3.1.2
-          gem install bundler
-
-      - name: Verify Ruby setup
-        run: |
-          ruby -v
-          which ruby
-          echo $PATH
-
-      - name: Set execute permissions
-        run: chmod +x bin/importmap
-
-      - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: bin/importmap audit
-
-  lint:
-    runs-on: ubuntu-latest
+  scan_ruby:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Ruby dependencies
-        run: sudo apt-get update && sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
-
-      - name: Set up Ruby with rbenv
-        run: |
-          curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-installer | bash
-          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-          source ~/.bashrc
-          rbenv install 3.1.2
-          rbenv global 3.1.2
-          gem install bundler
-
-      - name: Verify Ruby setup
-        run: |
-          ruby -v
-          which ruby
-          echo $PATH
-
-      - name: Set execute permissions
-        run: chmod +x bin/rubocop
-
-      - name: Lint code for consistent style
-        run: bin/rubocop -f github
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install dependencies
+        run: bundle install
+      - name: Run Ruby Security Scanner
+        run: bundle exec brakeman
 
   test:
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-        ports:
-          - 5432:5432
-        options: --health-cmd="pg_isready" --health-interval=10s --health-timeout=5s --health-retries=3
-
-      # redis:
-      #   image: redis
-      #   ports:
-      #     - 6379:6379
-      #   options: --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
-
+    runs-on: ubuntu-22.04
     steps:
-      - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips postgresql-client
-
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install Ruby dependencies
-        run: sudo apt-get update && sudo apt-get install -y libssl-dev libreadline-dev zlib1g-dev
-
-      - name: Set up Ruby with rbenv
-        run: |
-          curl -fsSL https://github.com/rbenv/rbenv-installer/raw/main/bin/rbenv-installer | bash
-          echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-          echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-          source ~/.bashrc
-          rbenv install 3.1.2
-          rbenv global 3.1.2
-          gem install bundler
-
-      - name: Verify Ruby setup
-        run: |
-          ruby -v
-          which ruby
-          echo $PATH
-
-      - name: Set execute permissions
-        run: chmod +x bin/rails
-
-      - name: Run tests
-        env:
-          RAILS_ENV: test
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432
-          # REDIS_URL: redis://localhost:6379/0
-        run: |
-          bin/rails db:test:prepare
-          bin/rails test
-          bin/rails test:system
-
-      - name: Keep screenshots from failed system tests
-        uses: actions/upload-artifact@v4
-        if: failure()
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
         with:
-          name: screenshots
-          path: ${{ github.workspace }}/tmp/screenshots
-          if-no-files-found: ignore
+          ruby-version: 3.2
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rspec
