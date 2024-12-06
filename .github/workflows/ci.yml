@@ -19,6 +19,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Verify Ruby setup
+        run: |
+          ruby -v
+          which ruby
+
       - name: Set execute permissions
         run: chmod +x bin/brakeman
 
@@ -38,6 +43,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Verify Ruby setup
+        run: |
+          ruby -v
+          which ruby
+
       - name: Set execute permissions
         run: chmod +x bin/importmap
 
@@ -55,6 +65,11 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Verify Ruby setup
+        run: |
+          ruby -v
+          which ruby
 
       - name: Set execute permissions
         run: chmod +x bin/rubocop
@@ -93,6 +108,11 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Verify Ruby setup
+        run: |
+          ruby -v
+          which ruby
 
       - name: Set execute permissions
         run: chmod +x bin/rails
