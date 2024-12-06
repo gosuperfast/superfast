@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['3.2']
+        ruby-version: ['3.2', '3.1', '3.0']
 
     services:
       postgres:
@@ -29,7 +29,7 @@ jobs:
           --health-retries 5
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Install libvips
       run: sudo apt-get install -y libvips
@@ -41,17 +41,10 @@ jobs:
         bundler-cache: true
 
     - name: Verify Ruby setup
-      run: |
-        ruby -v
-        which ruby
-        echo $PATH
+      run: ruby -v
 
     - name: Set execute permissions
-      run: |
-        chmod +x bin/brakeman
-        chmod +x bin/importmap
-        chmod +x bin/rubocop
-        chmod +x bin/rails
+      run: chmod +x bin/*
 
     - name: Setup Code Climate test-reporter
       run: |
@@ -61,7 +54,7 @@ jobs:
 
     - name: Create DB
       env:
-        RAILS_ENV: test
+        DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/postgres"
       run: |
         cp config/database.yml.ci config/database.yml
         bin/rails db:setup
@@ -72,10 +65,10 @@ jobs:
       run: bin/rails app:assets:precompile
 
     - name: Run tests
-      run: bin/rails test test/*
+      run: bin/rails test
 
     - name: Publish Code Coverage
       env:
         GIT_BRANCH: ${GITHUB_REF/refs/heads/}
       run: ./cc-test-reporter after-build -r ${{ secrets.CodeClimate }}
-      if: github.ref == 'refs/heads/main'
+      if: startsWith(github.ref, 'refs/heads/main')
