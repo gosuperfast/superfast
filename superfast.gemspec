@@ -3,8 +3,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.1.0" # Update version as needed
   spec.summary       = "A lightweight and fast CMS for Rails."
   spec.description   = "Superfast CMS is designed to make publishing simple, fast, and scalable."
-  spec.authors       = ["Your Name"] # Add your name or organization
-  spec.email         = ["your_email@example.com"] # Add your email
+  spec.authors       = ["Anudeep Chirumalla"] # Add your name or organization
+  spec.email         = ["anudeep@superfast.sh"] # Add your email
   spec.license       = "MIT" # Or another valid license
   spec.homepage      = "https://github.com/gosuperfast/superfast"
 
