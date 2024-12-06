@@ -4,13 +4,14 @@ on:
   push:
     tags:
       - 'v*.*.*'
+      - 'v*.*.*-rc*'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
@@ -18,9 +19,16 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
 
+    - name: Validate Gem Specification
+      run: gem specification your_gem.gemspec
+
     - name: Build and Publish Gem
       env:
         RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
       run: |
         gem build your_gem.gemspec
         gem push your_gem-*.gem
+
+    - name: Confirm Publish
+      run: gem list | grep your_gem
+
