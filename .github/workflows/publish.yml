@@ -3,32 +3,24 @@ name: Publish Gem
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    environment: production  # Reference your environment here
-    
-    permissions:
-      contents: write
-      packages: write
-      
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0'
+        ruby-version: '3.2'
+        bundler-cache: true
 
-    - name: Install dependencies
-      run: bundle install
-
-    - name: Publish to RubyGems
+    - name: Build and Publish Gem
       env:
         RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
       run: |
-        gem build superfast.gemspec
-        gem push superfast-*.gem
+        gem build your_gem.gemspec
+        gem push your_gem-*.gem
