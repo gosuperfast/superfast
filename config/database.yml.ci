@@ -1,7 +1,7 @@
 test:
   adapter: postgresql
-  database: test_db
+  database: superfast_test  
   username: postgres
-  password: postgres
-  host: 127.0.0.1
+  password: superfast  
+  host: postgres
   port: 5432
