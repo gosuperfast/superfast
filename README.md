@@ -25,7 +25,59 @@ Superfast is a blazing-fast, HTML-over-the-Wire publishing platform designed for
 - [License](LICENSE)
 - [Security Policy](SECURITY.md)
 
-## Getting Started
+## Contributing
+
+### Installation Requirements
+To contribute to the Superfast repository, ensure your system meets the following requirements:
+
+1. **Ruby**:
+   - Version: `3.2.0`
+
+2. **Rails**:
+   - Version: `8.0.0`
+
+3. **Bundler**:
+   - Version: `2.0`
+
+4. **Tailwind CSS**:
+   - Ensure Tailwind CSS is available for styling components. Use Rails Tailwind integration for ease.
+
+5. **Database**:
+   - Default: SQLite (development/testing)
+   - Production: PostgreSQL or MySQL
+
+6. **Git**:
+   - Ensure Git is installed for version control.
+
+### Setting Up the Project
+
+Follow these steps to set up the repository for development:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/gosuperfast/superfast.git
+   cd superfast
+   ```
+
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
+
+3. Set up the database:
+   ```bash
+   bin/rails db:setup
+   ```
+
+4. Run the server:
+   ```bash
+   bin/rails server
+   ```
+
+Visit `http://localhost:3000` to view the application locally.
+
+
+
 &nbsp; 
 
 
@@ -41,11 +93,6 @@ Superfast is proudly supported by our sponsors. A big thanks to:
 
 
 
-
-
-## Contributing
-
-We welcome contributions! Check out our **[Contributing Guide](CONTRIBUTING.md)** for details on how to get involved.
 
 
 ## License
