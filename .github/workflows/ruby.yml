@@ -43,7 +43,7 @@ jobs:
         bundler-cache: true
 
     - name: Database configuration
-      run: cp  config/database.yml config/database.yml.ci
+      run: cp config/database.yml config/database.yml.ci
 
     - name: Ensure bin scripts are executable
       run: chmod +x bin/*
@@ -51,7 +51,13 @@ jobs:
     - name: Prepare database
       env:
         RAILS_ENV: test
-      run: bin/rails db:setup
+        POSTGRES_HOST: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: superfast
+        POSTGRES_DB: superfast_test
+      run: |
+        bin/rails db:create
+        bin/rails db:schema:load
 
     - name: Check PostgreSQL inside the container
       run: docker exec -it $(docker ps -qf "name=postgres") psql -U postgres -d superfast_test
