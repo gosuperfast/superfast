@@ -3,5 +3,5 @@ test:
   database: superfast_test  
   username: postgres
   password: superfast  
-  host: 127.0.0.1
+  host: postgres
   port: 5432
