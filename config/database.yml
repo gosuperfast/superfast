@@ -20,7 +20,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: postgres
   password: superfast
-  host: localhost
+  
   port: 5432
 
 
@@ -64,7 +64,7 @@ test:
   database: superfast_test
   username: postgres
   password: superfast 
-  host: localhost
+  host: postgres
   port: 5432
 
 # As with config/credentials.yml, you never want to store sensitive information,
