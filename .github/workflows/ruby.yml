@@ -42,6 +42,9 @@ jobs:
     - name: Database configuration
       run: cp config/database.yml.ci config/database.yml
 
+    - name: Ensure bin scripts are executable
+      run: chmod +x bin/*
+
     - name: Prepare database
       env:
         RAILS_ENV: test
