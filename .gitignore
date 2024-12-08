@@ -1,8 +1,0 @@
-/.bundle
-/log/*
-/tmp/*
-*.gem
-*.lock
-.DS_Store
-coverage/
-spec/examples.txt
