@@ -1,3 +1,19 @@
+PATH
+  remote: .
+  specs:
+    superfast (0.1.0)
+      importmap-rails
+      jbuilder
+      pg (~> 1.1)
+      propshaft
+      puma (>= 5.0)
+      rails (~> 8.0.0)
+      solid_cable
+      solid_cache
+      solid_queue
+      stimulus-rails
+      turbo-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -339,16 +355,20 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
+  minitest (~> 5.16)
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
+  rake (~> 13.0)
+  rubocop (~> 1.21)
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable
   solid_cache
   solid_queue
   stimulus-rails
+  superfast!
   thruster
   turbo-rails
   tzinfo-data
