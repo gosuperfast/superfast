@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2bab7f0-010b-4f54-8741-8cd6a3af3fa9" name="Changes" comment="-basic landing page outline" />
+    <list default="true" id="b2bab7f0-010b-4f54-8741-8cd6a3af3fa9" name="Changes" comment="-basic landing page outline">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -202,7 +205,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733433618649</updated>
-      <workItem from="1733433619923" duration="15938000" />
+      <workItem from="1733433619923" duration="18328000" />
     </task>
     <task id="LOCAL-00001" summary="-basic landing page outline">
       <option name="closed" value="true" />
