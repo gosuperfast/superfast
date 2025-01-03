@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
-  layout "home"
-  def index
-  end
+  before_action :authenticate_user!, only: :product
 
-  def product
-  end
+  layout 'home'
+
+  def index; end
+
+  def product; end
 end
