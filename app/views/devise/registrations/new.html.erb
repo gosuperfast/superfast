@@ -4,7 +4,8 @@
       <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
         Sign up for an account
       </h2>
-      <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <% if controller_name == 'registrations' %>
         <p class="mt-2 text-center text-sm text-gray-600">
           Or <%= link_to "sign in", new_session_path(resource_name), 
                 class: "font-medium text-indigo-600 hover:text-indigo-500" %>
