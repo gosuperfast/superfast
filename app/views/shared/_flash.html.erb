@@ -1,5 +1,5 @@
 <% flash.each do |key, value| %>
-  <% color_scheme = key == 'alert' ? ' bg-red-400 border-l-4 border-red-700 text-white' : 'bg-[#136835] border-l-4 border-green-700 text-white' %>
+  <% color_scheme = key == 'alert' ? "bg-red-400 border-l-4 border-red-700 text-white" : "bg-[#136835] border-l-4 border-green-700 text-white" %>
   <div data-turbo-cache="false" class="fixed inset-x-0 top-0 flex items-end justify-right px-4 py-6 sm:p-6 justify-end z-30 pointer-events-none">
     <div data-controller="alert" class="max-w-sm w-full shadow-lg rounded px-4 py-3 relative \
                                         <%= color_scheme %> pointer-events-auto">

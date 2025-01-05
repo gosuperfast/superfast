@@ -14,7 +14,7 @@
             <!--Turbo rails-->
             <%= link_to 'Product', product_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white', 'aria-current': 'page' %>
             <% if current_user.present? %>
-              <%= link_to 'Sign Out', destroy_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white',
+              <%= link_to "Sign out", destroy_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white',
                                                                 data: { turbo_method: :delete } %>
             <% else %>
               <%= link_to "Sign in", new_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white' %>
