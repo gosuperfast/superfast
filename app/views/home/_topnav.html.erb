@@ -14,12 +14,10 @@
             <!--Turbo rails-->
             <%= link_to 'Product', product_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white', 'aria-current': 'page' %>
             <% if current_user.present? %>
-              <%= link_to 'Sign Out', destroy_user_session_path, class: 'no-underline block p-2 text-gray-900 bg-white \
-                                                                          hover:bg-gray-100 whitespace-nowrap focus:bg-gray-100',
+              <%= link_to 'Sign Out', destroy_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white',
                                                                 data: { turbo_method: :delete } %>
             <% else %>
-              <li><%= link_to "Sign in", new_user_session_path, class: 'no-underline block p-2 text-gray-900 bg-white \
-                                                                          hover:bg-gray-100 whitespace-nowrap focus:bg-gray-100' %></li>
+              <%= link_to "Sign in", new_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white' %>
             <% end %>
           </div>
         </div>
