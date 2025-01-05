@@ -73,4 +73,5 @@ Rails.application.configure do
   # Allow custom domains in development
   config.hosts << "lvh.me"
   config.hosts << /.*\.lvh\.me/
+
 end

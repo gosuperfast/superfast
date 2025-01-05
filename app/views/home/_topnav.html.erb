@@ -11,10 +11,14 @@
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Resources</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Pricing</a>
             -->
-
             <!--Turbo rails-->
             <%= link_to 'Product', product_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white', 'aria-current': 'page' %>
-        
+            <% if current_user.present? %>
+              <%= link_to "Sign out", destroy_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white',
+                                                                data: { turbo_method: :delete } %>
+            <% else %>
+              <%= link_to "Sign in", new_user_session_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white' %>
+            <% end %>
           </div>
         </div>
       </div>

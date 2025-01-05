@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    sessions: "users/sessions"
+  }
+
   namespace :app do
     get "dashboard/index"
   end
@@ -12,7 +17,6 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-
   # Public facing site
   # Defines the root path route ("/")
   root "home#index"
@@ -22,6 +26,6 @@ Rails.application.routes.draw do
 
   # Private app
   constraints subdomain: /.+/ do
-      get "dashboard", to: "app/dashboard#index", as: :dashboard
+    get "dashboard", to: "app/dashboard#index", as: :dashboard
   end
 end
