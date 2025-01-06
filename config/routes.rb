@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
 
   namespace :app do
-    get "dashboard/index"
+    get "dashboard", to: "dashboard#index", as: :app_dashboard
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
