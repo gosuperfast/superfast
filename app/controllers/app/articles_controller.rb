@@ -1,7 +1,7 @@
 module App
   class ArticlesController < ApplicationController
-    before_action :authenticate_user!, only: %i[new create update]
-    before_action :set_article, only: %i[show edit update destroy]
+    before_action :authenticate_user!, only: %i[new create]
+    # before_action :set_article, only: %i[show edit destroy]
 
     def new
       @article = Article.new

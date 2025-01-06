@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   constraints subdomain: /.+/ do
     namespace :app do
       get 'dashboard', to: 'dashboard#index'
+      resources :articles, only: %i[new create]
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
