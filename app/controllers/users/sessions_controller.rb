@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super do |resource|
-      redirect_to after_sign_in_path_for(resource), allow_other_host: true and return
+      redirect_to redirect_to_subdomain_dashboard(resource.subdomain), allow_other_host: true and return
     end
   end
 
