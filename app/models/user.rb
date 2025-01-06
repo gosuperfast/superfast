@@ -9,6 +9,6 @@ class User < ApplicationRecord
 
   private
   def assign_subdomain
-    self.subdomain ||= full_name.downcase
+    self.subdomain ||= full_name.parameterize
   end
 end
