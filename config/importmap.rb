@@ -8,3 +8,5 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 
 pin "tailwindcss-stimulus-components" # @6.1.2
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.esm.js"
