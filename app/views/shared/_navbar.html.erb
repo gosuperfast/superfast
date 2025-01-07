@@ -19,7 +19,7 @@
         </defs>
       </svg>
     </div>
-    <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]"><%= current_user.full_name.titleize %></h2>
+    <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]"><%= current_user&.full_name&.titleize %></h2>
   </div>
   <div class="flex gap-2">
     <%= link_to 'New Post', new_app_article_path, class: 'flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-blue-700 text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]' %>
