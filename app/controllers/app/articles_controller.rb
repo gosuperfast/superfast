@@ -11,7 +11,7 @@ module App
       @article = Article.new(article_params)
       @article.user = current_user
       if @article.save
-        redirect_to @article, notice: 'Article was successfully created.'
+        redirect_to app_articles_path(@article), notice: 'Article was successfully created.'
       else
         render :new, status: :unprocessable_entity
       end

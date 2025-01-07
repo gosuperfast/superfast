@@ -1,4 +1,6 @@
 <div>
-  <h1 class="font-bold text-4xl">App::Dashboard#index</h1>
-  <p>Subdomain: <%= @username %></p>
+  <h1 class="font-bold text-4xl">Articles</h1>
+  <div class="mt-3">
+    <%= link_to 'New Article', new_app_article_path, class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white' %>
+  </div>
 </div>
