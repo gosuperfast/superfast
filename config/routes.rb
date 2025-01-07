@@ -5,11 +5,21 @@ Rails.application.routes.draw do
   }
 
   constraints subdomain: /.+/ do
-    namespace :app do
-      get 'dashboard', to: 'dashboard#index'
-      resources :articles, only: %i[new create]
+    devise_scope :user do
+      authenticated do
+        root to: 'app/dashboard#index'
+        namespace :app do
+          get 'dashboard', to: 'dashboard#index'
+          resources :articles, only: %i[new create index]
+        end
+      end
+
+      unauthenticated do
+        root to: 'users/sessions#new', as: 'unauthenticated_root'
+      end
     end
   end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -22,7 +32,7 @@ Rails.application.routes.draw do
 
   # Public facing site
   # Defines the root path route ("/")
-  root 'home#index'
+  # root 'home#index'
 
   # Other pages
   get 'product', to: 'home#product'
