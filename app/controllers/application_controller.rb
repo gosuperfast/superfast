@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   # Redirect to subdomain dashboard after sign-in
   def after_sign_in_path_for(resource)
     # Replace `subdomain` with the attribute that stores the user's subdomain
-    dashboard_url(subdomain: resource.subdomain)
+    app_dashboard_url(subdomain: resource.subdomain)
   end
 end
