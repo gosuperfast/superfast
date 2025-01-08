@@ -6,7 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :organization
-
   has_many :articles, foreign_key: :author_id
 
   validates :full_name, presence: true
