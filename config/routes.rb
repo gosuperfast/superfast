@@ -36,4 +36,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  #  redirect all unknown routes to root_url
+  get '*path' => redirect('/')
 end
