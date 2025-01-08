@@ -1,0 +1,5 @@
+<%= simple_form_for(@article, url: app_articles_path) do |f| %>
+  <%= f.input :title, label: false, input_html: { placeholder: 'Title' }, wrapper_html: { class: 'mb-4' } %>
+  <%= f.rich_textarea :body %>
+  <%= f.submit 'Create', class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white mt-4' %>
+<% end %>

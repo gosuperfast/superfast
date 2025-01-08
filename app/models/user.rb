@@ -5,10 +5,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :articles
+
   validates :full_name, presence: true
 
   private
   def assign_subdomain
-    self.subdomain ||= full_name.downcase
+    self.subdomain ||= full_name.parameterize
   end
 end

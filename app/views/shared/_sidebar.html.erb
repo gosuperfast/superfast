@@ -1,0 +1,33 @@
+<div class="layout-content-container flex flex-col w-80">
+  <div class="flex h-full min-h-[700px] flex-col justify-between bg-[#FFFFFF] p-4">
+    <div class="flex flex-col gap-4">
+      <div class="flex gap-3">
+        <div
+        class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+        style='background-image: url("<%= asset_path('empty-image.png') %>");'
+        ></div>
+        <div class="flex flex-col">
+          <h1 class="text-[#1C160C] text-base font-medium leading-normal"><%= current_user&.full_name&.titleize %></h1>
+          <p class="text-[#A18249] text-sm font-normal leading-normal">CMS Management</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2">
+        <%= link_to app_dashboard_path, class: 'flex items-center gap-3 px-3 py-2' do %>
+          <i class="fa-solid fa-gauge size-6"></i>
+          <p class="text-[#1C160C] text-md font-medium leading-normal">Dashboard</p>
+        <% end %>
+      </div>
+      <div class="flex flex-col gap-2">
+        <%= link_to app_articles_path, class: 'flex items-center gap-3 px-3 py-2' do %>
+          <i class="fa-regular fa-newspaper size-6"></i>
+          <p class="text-[#1C160C] text-md font-medium leading-normal">Articles</p>
+        <% end %>
+      </div>
+    </div>
+    <button
+    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-blue-700 text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]"
+    >
+      <span class="truncate">Upgrade</span>
+    </button>
+  </div>
+</div>
