@@ -9,11 +9,9 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    super do |resource|
-      redirect_to redirect_to_subdomain_dashboard(resource.subdomain), allow_other_host: true and return
-    end
-  end
+  # def create
+  #  super 
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

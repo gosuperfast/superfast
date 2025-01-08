@@ -10,14 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super do |resource|
-      if resource.persisted? # Ensure the resource was saved successfully
-        sign_in(resource) # Automatically sign in the user
-        redirect_to redirect_to_subdomain_dashboard(resource.subdomain), allow_other_host: true and return
-      end
-    end
-  end
+  # def create
+  #   super 
+  # end
 
   # GET /resource/edit
   # def edit
