@@ -5,11 +5,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :articles
+  belongs_to :organization
+
+  has_many :articles, foreign_key: :author_id
 
   validates :full_name, presence: true
 
   private
+
   def assign_subdomain
     self.subdomain ||= full_name.parameterize
   end
