@@ -9,8 +9,9 @@ module App
 
     def create
       @article = Article.new(article_params)
-      @article.user = current_user
-      if @article.save
+      @article.author = current_user
+      @article.organization = current_user.current_organization
+      if @article.save!
         redirect_to app_articles_path(@article), notice: 'Article was successfully created.'
       else
         render :new, status: :unprocessable_entity

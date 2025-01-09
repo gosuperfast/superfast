@@ -10,7 +10,9 @@
     <div class="flex flex-col justify-center">
       <p class="text-[#1C160C] text-base font-medium leading-normal line-clamp-1"><%= article.title %></p>
       <p class="text-[#A18249] text-sm font-normal leading-normal line-clamp-2">
-        <%= article.user.full_name.titleize %> - <%= article.created_at.strftime('%d %b %Y') %>, Published
+        <%= article.author.full_name.titleize %> - <%= article.created_at.strftime('%d %b %Y') %>, Published
+
+        <%= display_content(article.body) %>
       </p>
     </div>
   </div>

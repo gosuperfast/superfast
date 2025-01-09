@@ -11,7 +11,11 @@ class User < ApplicationRecord
 
   validates :full_name, presence: true
 
+  def current_organization
+    organizations.first
+  end
+
   def subdomain
-    organizations.first.subdomain
+    current_organization.subdomain
   end
 end

@@ -1,5 +1,7 @@
-<%= simple_form_for(@article, url: app_articles_path) do |f| %>
+<%= simple_form_for(@article, url: app_articles_path,
+                              data: { controller: 'editor'}) do |f| %>
   <%= f.input :title, label: false, input_html: { placeholder: 'Title' }, wrapper_html: { class: 'mb-4' } %>
-  <%= f.rich_textarea :body %>
+  <%= f.hidden_field :body, id: 'article_body_hidden' %>
+  <div id="article_body" data-editor-target="articleBody"></div>
   <%= f.submit 'Create', class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white mt-4' %>
 <% end %>
