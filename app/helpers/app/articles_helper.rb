@@ -6,6 +6,14 @@ module App::ArticlesHelper
       case block['type']
       when 'paragraph'
         "<p>#{block['data']['text']}</p>"
+      when 'header'
+        "<h#{block['data']['level']}>#{block['data']['text']}</h#{block['data']['level']}>"
+      when 'list'
+        list_items = block['data']['items'].map { |item| "<li>#{item}</li>" }.join
+        "<ul>#{list_items}</ul>"
+      when 'code'
+        CGI.escapeHTML(block['data']['code'])
+        "<pre><code>#{block['data']['code']}</code></pre>"
       else
         ''
       end
