@@ -21,7 +21,10 @@
     <h2 class="text-[#1C160C] text-lg font-bold leading-tight tracking-[-0.015em]"><%= current_user&.full_name&.titleize %></h2>
   </div>
   <div class="flex gap-2">
-    <%= link_to 'New Article', new_app_article_path, class: 'flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-blue-700 text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]' %>
+    <%= link_to 'New Article', new_app_article_path, data: { turbo_frame: 'turbo-modal' },
+                               class: 'flex min-w-[84px] max-w-[480px] cursor-pointer items-center \
+                                       justify-center overflow-hidden rounded-full h-10 px-4 bg-blue-700 \
+                                       text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]' %>
     <button
               class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#F4EFE6] text-[#1C160C] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
             >

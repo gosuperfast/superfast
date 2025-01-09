@@ -62,8 +62,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'tailwindcss-rails', '~> 3.0'
-
 gem 'devise', '~> 4.9'
-
 gem 'simple_form', '~> 5.3'
+gem 'tailwindcss-rails', '~> 3.0'
+gem 'view_component', '~> 3.20'
