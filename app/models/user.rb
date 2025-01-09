@@ -4,12 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :organization
+  has_many :memberships, dependent: :destroy
+  has_many :organizations, through: :memberships
+
   has_many :articles, foreign_key: :author_id
 
   validates :full_name, presence: true
 
   def subdomain
-    organization.subdomain
+    organizations.first.subdomain
   end
 end

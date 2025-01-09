@@ -1,7 +1,8 @@
 class Organization < ApplicationRecord
   before_create :assign_subdomain
 
-  has_many :members, class_name: 'User', dependent: :destroy
+  has_many :memberships, dependent: :destroy
+  has_many :members, through: :memberships, source: :user
   has_many :articles, dependent: :destroy
 
   validates :publication_name, presence: true, uniqueness: { case_sensitive: false }
