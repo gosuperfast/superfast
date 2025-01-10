@@ -17,3 +17,4 @@ pin "@editorjs/header", to: "@editorjs--header.js" # @2.8.8
 pin "@editorjs/list", to: "@editorjs--list.js" # @2.0.2
 pin "@editorjs/paragraph", to: "@editorjs--paragraph.js" # @2.11.7
 pin "@editorjs/code", to: "@editorjs--code.js" # @2.9.3
+pin "editorjs-button" # @3.0.3

@@ -1,12 +1,14 @@
 <%= render TurboModalComponent.new(title: 'New Article') do %>
-  <div class="w-screen h-screen flex items-center justify-center">
+  <div class="w-screen h-screen flex justify-center">
     <%= simple_form_for(@article, url: app_articles_path,
                               data: { controller: 'editor'},
                               html: { class: 'mx-auto w-[65%]' }) do |f| %>
-      <%= f.input :title, label: false, input_html: { placeholder: 'Title', class: 'w-full' }, 
+      <%= f.input :title, label: false, input_html: { placeholder: 'Article Title', class: 'w-full border-transparent',
+                                                      style: 'font-size: 3em; font-weight: bold; line-height: 1.2;'
+                                                    }, 
                                         wrapper_html: { class: 'mb-4 w-full rounded-md' } %>
       <%= f.hidden_field :body, id: 'article_body_hidden' %>
-      <div id="article_body" class="border w-full" data-editor-target="articleBody"></div>
+      <div id="article_body" class="w-full" data-editor-target="articleBody"></div>
       <%= f.submit 'Create', class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white mt-4' %>
     <% end %>
   </div>

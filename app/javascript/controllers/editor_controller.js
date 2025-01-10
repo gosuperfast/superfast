@@ -7,6 +7,7 @@ import Header from "@editorjs/header";
 import Paragraph from "@editorjs/paragraph";
 import List from "@editorjs/list";
 import Code from "@editorjs/code";
+import Button from "editorjs-button";
 
 // Connects to data-controller="editor"
 export default class extends Controller {
@@ -32,6 +33,7 @@ export default class extends Controller {
           config: {
             inlineToolbar: true,
             placeholder: "Write something nice...",
+            default: "Paragraph",
           },
         },
         list: {
@@ -42,6 +44,12 @@ export default class extends Controller {
         },
         code: {
           class: Code,
+          config: {
+            inlineToolbar: true,
+          },
+        },
+        button: {
+          class: Button,
           config: {
             inlineToolbar: true,
           },

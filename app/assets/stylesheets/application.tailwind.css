@@ -23,3 +23,5 @@
     @apply text-base font-normal text-gray-300;
   }
 }
+
+@import "editorjs_custom.css";

@@ -1,0 +1,8 @@
+.ce-popover__container,
+.ce-popover__items,
+.ce-popover__item {
+  width: 25rem !important;
+}
+.ce-popover-item__title {
+  font-size: 1.2rem !important;
+}

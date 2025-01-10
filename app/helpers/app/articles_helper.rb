@@ -15,6 +15,10 @@ module App::ArticlesHelper
       when 'code'
         CGI.escapeHTML(block['data']['code'])
         "<pre><code>#{block['data']['code']}</code></pre>"
+      when 'button'
+        "<a href='#{block['data']['link']}' class='flex min-w-[84px] max-w-[480px] cursor-pointer items-center \
+                                       justify-center overflow-hidden rounded-full h-10 px-4 bg-blue-700 \
+                                       text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]'>#{block['data']['text']}</a>"
       else
         ''
       end
