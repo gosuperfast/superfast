@@ -1,16 +1,17 @@
 class User < ApplicationRecord
-  before_create :assign_subdomain
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :articles
+  has_many :memberships, dependent: :destroy
+  has_many :organizations, through: :memberships
+
+  has_many :articles, foreign_key: :author_id
 
   validates :full_name, presence: true
 
-  private
-  def assign_subdomain
-    self.subdomain ||= full_name.parameterize
+  def subdomain
+    organizations.first.subdomain
   end
 end

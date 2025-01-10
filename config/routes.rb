@@ -23,9 +23,20 @@ Rails.application.routes.draw do
 
   # Private app
   constraints subdomain: /.+/ do
-    namespace :app do
-      get 'dashboard', to: 'dashboard#index', as: :dashboard
-      resources :articles, only: %i[new create index]
+    devise_scope :user do
+      authenticated do
+        root to: 'app/dashboard#index', as: 'authenticated_root'
+        namespace :app do
+          get 'dashboard', to: 'dashboard#index'
+          resources :articles, only: %i[new create index]
+        end
+      end
+      unauthenticated do
+        root to: 'users/sessions#new', as: 'unauthenticated_root'
+      end
     end
   end
+
+  #  redirect all unknown routes to root_url
+  get '*path' => redirect('/')
 end

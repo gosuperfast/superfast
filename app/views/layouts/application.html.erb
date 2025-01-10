@@ -21,9 +21,11 @@
   <body>
     <%= render "shared/flash" %>
     <main class="container mx-auto mt-8">
-      <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] group/design-root overflow-x-hidden" style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
+      <div class="relative flex size-full min-h-screen flex-col bg-[#FFFFFF] \
+                  group/design-root overflow-x-hidden"
+           style='font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;'>
         <div class="layout-container flex h-full grow flex-col">
-          <%= render 'shared/navbar' if current_user.present? %>
+          <%= render 'shared/app/navbar' if current_user.present? %>
           <div class="gap-1 px-6 flex flex-1 justify-center py-5">
             <%= render 'shared/sidebar' if current_user.present? %>
             <%= yield %>
