@@ -1,9 +1,14 @@
 <%= render TurboModalComponent.new(title: 'New Article') do %>
-  <%= simple_form_for(@article, url: app_articles_path,
-                              data: { controller: 'editor'}) do |f| %>
-    <%= f.input :title, label: false, input_html: { placeholder: 'Title' }, wrapper_html: { class: 'mb-4' } %>
-    <%= f.hidden_field :body, id: 'article_body_hidden' %>
-    <div id="article_body" data-editor-target="articleBody"></div>
-    <%= f.submit 'Create', class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white mt-4' %>
-  <% end %>
+  <div class="w-screen h-screen flex items-center justify-center">
+    <%= simple_form_for(@article, url: app_articles_path,
+                              data: { controller: 'editor'},
+                              html: { class: 'mx-auto w-1/2' }) do |f| %>
+      <%= f.input :title, label: false, input_html: { placeholder: 'Title' }, 
+                                        wrapper_html: { class: 'mb-4' },
+                                        input_html: { class: 'h1'}%>
+      <%= f.hidden_field :body, id: 'article_body_hidden' %>
+      <div id="article_body" class="border w-full" data-editor-target="articleBody"></div>
+      <%= f.submit 'Create', class: 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white mt-4' %>
+    <% end %>
+  </div>
 <% end %>
