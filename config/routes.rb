@@ -28,7 +28,7 @@ Rails.application.routes.draw do
         root to: 'app/dashboard#index', as: 'authenticated_root'
         namespace :app do
           get 'dashboard', to: 'dashboard#index'
-          resources :articles, only: %i[new create index]
+          resources :articles, only: %i[new create index show]
         end
       end
       unauthenticated do

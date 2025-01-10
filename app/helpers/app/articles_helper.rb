@@ -3,6 +3,7 @@ module App::ArticlesHelper
     parsed_content = JSON.parse(content)
 
     content_html = parsed_content['blocks'].map do |block|
+      # debugger
       case block['type']
       when 'paragraph'
         "<p>#{block['data']['text']}</p>"
@@ -19,6 +20,6 @@ module App::ArticlesHelper
       end
     end
 
-    content_html.join.html_safe
+    content_html.join("\r\n").html_safe
   end
 end

@@ -23,12 +23,15 @@ export default class extends Controller {
           class: Header,
           config: {
             inlineToolbar: true,
+            levels: [1, 2, 3, 4],
+            placeholder: "Enter a header",
           },
         },
         paragraph: {
           class: Paragraph,
           config: {
             inlineToolbar: true,
+            placeholder: "Write something nice...",
           },
         },
         list: {

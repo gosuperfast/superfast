@@ -22,10 +22,14 @@ module App
       @articles = current_user.articles
     end
 
+    def show
+      @article = Article.find(params[:id])
+    end
+
     private
 
     def article_params
-      params.fetch(:article, {}).permit(:title, :body, :description)
+      params.fetch(:article, {}).permit(:title, :body)
     end
 
     # Use callbacks to share common setup or constraints between actions.
